@@ -7,7 +7,7 @@ class Perceptron:
         
 
     def weighted_sum(self, inputs):
-        weighted_sum = self.weights[-1]
+        weighted_sum = self.bias
         for i in range(self.num_inputs):
             weighted_sum += self.weights[i] * inputs[i]
         return weighted_sum
@@ -16,7 +16,7 @@ class Perceptron:
         # print(f'weighted sum: {weighted_sum}')
         return 1 if weighted_sum >= 0 else -1
     
-    def training(self, training_set, max_epochs=10000, learning_rate=0.01):
+    def training(self, training_set, max_epochs=100000, learning_rate=0.001):
         for epoch in range(max_epochs):
             total_error = 0
 
@@ -29,7 +29,7 @@ class Perceptron:
                     self.weights[i] += learning_rate * error * inputs[i]
                 self.bias += learning_rate * error
             
-            print(f'Epoch {epoch + 1}, Total error: {total_error}, Weights: {self.weights}, Bias: {self.bias}')
+            # print(f'Epoch {epoch + 1}, Total error: {total_error}, Weights: {self.weights}, Bias: {self.bias}')
 
             if total_error == 0:
                 print(f'Converged after {epoch + 1} epocs')
@@ -41,6 +41,12 @@ class Perceptron:
         return self.weights
     
 training_data_even_odd = [
+    ([-5], -1),
+    ([-4], 1),
+    ([-3], -1),
+    ([-2], 1),
+    ([-1], -1),
+    ([0], 1),
     ([1], -1),
     ([2], 1),
     ([3], -1),
@@ -77,6 +83,46 @@ perceptron_2 = Perceptron(num_inputs=1)
 perceptron_2.training(training_data_even_odd)
 
 result_2 = perceptron_2.activation(perceptron_2.weighted_sum([1]))
-result_3 = perceptron_2.activation(perceptron_2.weighted_sum([2]))
+result_3 = perceptron_2.activation(perceptron_2.weighted_sum([121]))
 
-print(result_2, result_3)
+# print(result_2, result_3)
+
+test_nums = [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+for i in test_nums:
+    result = perceptron_2.activation(perceptron_2.weighted_sum([i]))
+    print(f'i: {i}, result: {result}')
+
+# Output for test_nums
+
+# i: -10, result: -1
+# i: -9, result: -1
+# i: -8, result: -1
+# i: -7, result: -1
+# i: -6, result: -1
+# i: -5, result: -1
+# i: -4, result: -1
+# i: -3, result: -1
+# i: -2, result: -1
+# i: -1, result: -1
+# i: 0, result: -1
+# i: 1, result: 1
+# i: 2, result: 1
+# i: 3, result: 1
+# i: 4, result: 1
+# i: 5, result: 1
+# i: 6, result: 1
+# i: 7, result: 1
+# i: 8, result: 1
+# i: 9, result: 1
+# i: 10, result: 1
+# i: 11, result: 1
+# i: 12, result: 1
+# i: 13, result: 1
+# i: 14, result: 1
+# i: 15, result: 1
+# i: 16, result: 1
+# i: 17, result: 1
+# i: 18, result: 1
+# i: 19, result: 1
+# i: 20, result: 1
