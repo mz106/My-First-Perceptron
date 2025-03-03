@@ -22,7 +22,7 @@ class Perceptron:
         # print(f'weighted sum: {weighted_sum}')
         return 1 if weighted_sum >= 0 else -1
     
-    def training(self, training_set, max_epochs=100, learning_rate=0.1):
+    def training(self, training_set, max_epochs=100000, learning_rate=0.1):
         for epoch in range(max_epochs):
             total_error = 0
 
@@ -116,7 +116,7 @@ training_data_even_odd = [
 #     ([19], -1),
 # ]
 
-perceptron_2 = Perceptron(num_inputs=1, learning_rate=0.1)
+perceptron_2 = Perceptron(num_inputs=1, learning_rate=0.0001)
 perceptron_2.training(training_data_even_odd)
 
 result_2 = perceptron_2.activation(perceptron_2.weighted_sum([1]))
