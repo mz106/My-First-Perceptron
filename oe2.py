@@ -1,12 +1,7 @@
 class Perceptron:
     def __init__(self, num_inputs=1, learning_rate=0.1):
         self.num_inputs = num_inputs
-        # self.weights = [0] * num_inputs original
-        # self.weights = [6.1999999999947235] 1st 
-        #self.weights = [3.9999999999893956] #2nd
-        # self.bias = -31.79999999999992 1st
-        #self.bias = -31.79999999999992 #
-        self.weights = [1]
+        self.weights = [0]
         self.bias = 0
         self.learning_rate = learning_rate
         
