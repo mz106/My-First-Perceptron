@@ -140,7 +140,10 @@ for num, inputs in test_nums:
 result_37 = prediction = perceptron.activation(perceptron.weighted_sum([0, 0, 0, 0]))
 result_100 = prediction = perceptron.activation(perceptron.weighted_sum([1, 0, 1, 1]))
 
-print(f'Result 37: {result_37}, Result 100: {result_100}')
+result_55 = prediction = perceptron.activation(perceptron.weighted_sum([0, 0, 1, 0]))
+result_neg_7839 = prediction = perceptron.activation(perceptron.weighted_sum([0, 0, 1, 0]))
+result_neg_78392 = prediction = perceptron.activation(perceptron.weighted_sum([1, 0, 0, 0]))
+print(f'Result 37: {result_37}, Result 100: {result_100}, Result 55: {result_55}, Result -7839: {result_neg_7839}, Result -78392: {result_neg_78392}')
 
 
 
